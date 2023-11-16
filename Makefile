@@ -12,3 +12,6 @@ get_requirements:
 
 update:
 	odoo --db_host=odoo_db --db_port=5432 --db_user=odoo --db_password=odoo -d odoo -u estate
+
+download_conf:
+	docker cp odoo_web:/etc/odoo/odoo.conf .

@@ -9,9 +9,9 @@ services:
     ports:
       - "8069:8069"
     volumes:
-      - odoo_17_web_data:/var/lib/odoo
-      - ./config:/etc/odoo
-      - ./extra-addons:/mnt/extra-addons
+      - odoo_web_data:/var/lib/odoo
+      - ./config/odoo.conf:/etc/odoo/odoo.conf
+      - .:/mnt
     environment:
       - SHELL=/bin/bash
     networks:
@@ -26,15 +26,15 @@ services:
       - POSTGRES_USER=odoo
       - POSTGRES_PASSWORD=odoo
     volumes:
-      - odoo_17_db_data:/var/lib/postgresql/data
+      - odoo_db_data:/var/lib/postgresql/data
     ports:
       - "54320:5432"
     networks:
       - odoo_local
 
 volumes:
-  odoo_17_web_data:
-  odoo_17_db_data:
+  odoo_web_data:
+  odoo_db_data:
 
 networks:
   odoo_local:

@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "/mnt"
+    },
+    {
+      "path": "/usr/lib/python3/dist-packages/odoo/addons"
+    },
+    {
+      "path": "/var/lib/odoo/.local/share/Odoo/addons/17.0"
+    }
+  ],
+  "settings": {}
+}

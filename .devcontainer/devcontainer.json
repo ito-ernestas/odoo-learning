@@ -3,9 +3,6 @@
   "dockerComposeFile": "../docker-compose.yaml",
   "service": "web",
   "workspaceFolder": "/mnt",
-  // "settings": {
-  //   "terminal.integrated.shell.linux": null
-  // },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -17,10 +14,7 @@
       ]
     }
   },
-  "forwardPorts": [
-    3000 // Replace with the ports your app uses
-  ],
+  "forwardPorts": [3000],
   "postCreateCommand": "echo 'Container ready!'",
-  // "postCreateCommand": "ln -s /usr/lib/python3/dist-packages/odoo /mnt/odoo-packages && echo 'Container ready!'",
   "shutdownAction": "stopCompose"
 }
