@@ -11,7 +11,7 @@ services:
     volumes:
       - odoo_17_web_data:/var/lib/odoo
       - ./config:/etc/odoo
-      - .:/mnt
+      - ./extra-addons:/mnt/extra-addons
     environment:
       - SHELL=/bin/bash
     networks:
