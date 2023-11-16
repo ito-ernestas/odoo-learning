@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+
+<menuitem id="menu_estate_property"
+            name="Estate Properties"
+            action="action_estate_property"/>
+
+    </data>
+</odoo>

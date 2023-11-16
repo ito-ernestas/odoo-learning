@@ -1,0 +1,41 @@
+version: "3"
+services:
+  web:
+    image: odoo:17
+    hostname: odoo_web
+    container_name: odoo_web
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - odoo_17_web_data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - .:/mnt
+    environment:
+      - SHELL=/bin/bash
+    networks:
+      - odoo_local
+
+  db:
+    image: postgres:13
+    hostname: odoo_db
+    container_name: odoo_db
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+    volumes:
+      - odoo_17_db_data:/var/lib/postgresql/data
+    ports:
+      - "54320:5432"
+    networks:
+      - odoo_local
+
+volumes:
+  odoo_17_web_data:
+  odoo_17_db_data:
+
+networks:
+  odoo_local:
+    driver: bridge

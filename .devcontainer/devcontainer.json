@@ -1,0 +1,22 @@
+{
+  "name": "Odoo web container",
+  "dockerComposeFile": "../docker-compose.yaml",
+  "service": "web",
+  "workspaceFolder": "/mnt",
+  "settings": {
+    "terminal.integrated.shell.linux": null
+  },
+  "extensions": [
+    "ms-python.python",
+    "dbaeumer.vscode-eslint",
+    "mechatroner.rainbow-csv",
+    "ms-vscode.makefile-tools",
+    "GitHub.copilot"
+  ],
+  "forwardPorts": [
+    3000 // Replace with the ports your app uses
+  ],
+  "postCreateCommand": "echo 'Container ready!'",
+  // "postCreateCommand": "ln -s /usr/lib/python3/dist-packages/odoo /mnt/odoo-packages && echo 'Container ready!'",
+  "shutdownAction": "stopCompose"
+}
