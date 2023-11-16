@@ -1,30 +1,5 @@
 <odoo>
     <data>
-        <!-- Action to Open Views -->
-        <record id="action_estate_property" model="ir.actions.act_window">
-            <field name="name">Estate Properties</field>
-            <field name="res_model">estate.property</field>
-            <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="view_estate_property_tree"/>
-        </record>
-
-                <!-- Tree View -->
-        <record id="view_estate_property_tree" model="ir.ui.view">
-            <field name="name">estate.property.tree</field>
-            <field name="model">estate.property</field>
-            <field name="arch" type="xml">
-                <tree string="Estate Properties">
-                    <field name="name"/>
-                    <field name="expected_price"/>
-                    <field name="bedrooms"/>
-                    <field name="living_area"/>
-                    <field name="garden"/>
-                    <field name="garage"/>
-                </tree>
-            </field>
-        </record>
-
-        <!-- Form View -->
         <record id="view_estate_property_form" model="ir.ui.view">
             <field name="name">estate.property.form</field>
             <field name="model">estate.property</field>
@@ -51,7 +26,26 @@
             </field>
         </record>
 
-        <!-- Menu Item -->
+        <record id="view_estate_property_tree" model="ir.ui.view">
+            <field name="name">estate.property.tree</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <tree string="Estate Properties">
+                    <field name="name"/>
+                    <field name="expected_price"/>
+                    <field name="bedrooms"/>
+                    <field name="living_area"/>
+                    <field name="garden"/>
+                    <field name="garage"/>
+                </tree>
+            </field>
+        </record>
 
+        <record id="action_estate_property" model="ir.actions.act_window">
+            <field name="name">Estate Properties</field>
+            <field name="res_model">estate.property</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_estate_property_tree"/>
+        </record>
     </data>
 </odoo>
