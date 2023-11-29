@@ -1,0 +1,24 @@
+<odoo>
+    <record id="view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet" position="inside">
+                <notebook>
+                    <page string="Objects">
+                        <field name="partner_objects">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="object_type"/>
+                                <field name="vin_number"/>
+                                <field name="indicator_required"/>
+                                <field name="indicator"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+</odoo>

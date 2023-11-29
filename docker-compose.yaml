@@ -1,7 +1,7 @@
 version: "3"
 services:
   web:
-    image: odoo:17
+    build: .
     hostname: odoo_web
     container_name: odoo_web
     depends_on:

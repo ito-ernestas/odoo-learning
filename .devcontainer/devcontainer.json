@@ -3,18 +3,26 @@
   "dockerComposeFile": "../docker-compose.yaml",
   "service": "web",
   "workspaceFolder": "/mnt",
+  "forwardPorts": [3000],
+  "postCreateCommand": "echo 'Container ready!'",
+  "shutdownAction": "stopCompose",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-python.python",
-        "dbaeumer.vscode-eslint",
         "mechatroner.rainbow-csv",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
         "ms-vscode.makefile-tools",
-        "GitHub.copilot"
+        "GitHub.copilot-chat",
+        "GitHub.copilot",
+        "ms-azuretools.vscode-docker",
+        "formulahendry.code-runner",
+        "DotJoshJohnson.xml",
+        "esbenp.prettier-vscode"
       ]
     }
-  },
-  "forwardPorts": [3000],
-  "postCreateCommand": "echo 'Container ready!'",
-  "shutdownAction": "stopCompose"
+  }
 }
