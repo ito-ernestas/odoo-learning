@@ -23,6 +23,9 @@
         "DotJoshJohnson.xml",
         "esbenp.prettier-vscode"
       ]
+    },
+    "settings": {
+      "terminal.integrated.fontFamily": "MesloLGS NF, Regular"
     }
   }
 }
