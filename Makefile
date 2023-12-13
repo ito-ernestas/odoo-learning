@@ -30,3 +30,6 @@ install:
 
 logs:
 	tail -f /var/log/odoo/odoo.log
+
+reload:
+	odoo --db_host db --db_port 5432 --db_user odoo --db_password odoo --dev reload --stop-after-init

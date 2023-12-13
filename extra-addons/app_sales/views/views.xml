@@ -23,9 +23,9 @@
     <!-- Add a menu item under Sales → Configuration -->
     <menuitem id="menu_work_order_type"
             name="Work Order Types"
-            parent="sale.menu_sale_config"
+            parent="sale.menu_sales_config"
             action="action_work_order_type"
-            sequence="5"/>
+            sequence="30"/>
 
     <record id="view_order_form_inherit" model="ir.ui.view">
         <field name="name">sale.order.form.inherit</field>
@@ -33,7 +33,7 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="partner_object_id" domain=""/>
+                <field name="partner_object_id"/>
                 <field name="work_order_type_id"/>
             </xpath>
         </field>
