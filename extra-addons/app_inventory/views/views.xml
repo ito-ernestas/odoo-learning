@@ -1,0 +1,25 @@
+<odoo>
+  <data>
+    <record id="app_report" model="ir.actions.report">
+      <field name="name">Product Label 2x7 (PDF)</field>
+      <field name="model">product.template</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="report_name">app_report</field>
+      <field name="report_file">app_report</field>
+      <field name="paperformat_id" ref="product.paperformat_label_sheet"/>
+      <field name="print_report_name">'Products Labels - %s' % (object.name)</field>
+      <field name="binding_model_id" eval="False"/>
+      <field name="binding_type">report</field>
+    </record>
+    <record id="view_picking_form_inherit" model="ir.ui.view">
+      <field name="name">stock.picking.form.inherit.your_module_name</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//button[@name='%(stock.action_stock_picking_label)d']" position="attributes">
+          <attribute name="context">{'default_model': 'stock.picking', 'default_res_id': id, 'default_report_action_name': 'your_module_name.action_report_custom_label'}</attribute>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

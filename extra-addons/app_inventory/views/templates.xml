@@ -1,0 +1,13 @@
+<template id="report_custom_label">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <t t-call="web.external_layout">
+                <!-- Your custom layout content here -->
+                <div class="page">
+                    <h2>Custom Label for: <t t-esc="doc.name"/></h2>
+                    <!-- More custom content -->
+                </div>
+            </t>
+        </t>
+    </t>
+</template>

@@ -13,6 +13,7 @@ class WorkOrderType(models.Model):
         ('urgent', 'Urgent')
     ], string='Priority', default='standard', required=True)
 
+    active = fields.Boolean(string='Active', default=True)
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
@@ -20,7 +21,7 @@ class SaleOrder(models.Model):
     partner_object_id = fields.Many2one(
         'partner.object', 
         string='Object', 
-        domain="[('partner_id', '=', partner_id)]",  # Dynamic domain based on partner_id
+        # domain="[('partner_id', '=', partner_id)]",  # Dynamic domain based on partner_id
         required=False
     )
 
