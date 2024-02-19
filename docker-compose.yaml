@@ -12,8 +12,9 @@ services:
     volumes:
       - odoo_web_data:/var/lib/odoo
       - ./config/odoo.conf:/etc/odoo/odoo.conf
-      - .:/mnt
       - ./extra-addons:/mnt/extra-addons
+      - ./enterprise:/mnt/enterprise
+      - .:/mnt
     environment:
       - SHELL=/bin/zsh
     networks:

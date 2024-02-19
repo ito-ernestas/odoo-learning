@@ -33,3 +33,9 @@ logs:
 
 reload:
 	odoo --db_host db --db_port 5432 --db_user odoo --db_password odoo --dev reload --stop-after-init
+
+docker_reload:
+	docker exec odoo_web odoo --dev reload --stop-after-init
+
+docker_install:
+	docker exec odoo_web odoo --db_host=odoo_db --db_port=5432 --db_user=odoo --db_password=odoo -d odoo -i --stop-after-init
