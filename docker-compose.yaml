@@ -13,7 +13,6 @@ services:
       - odoo_web_data:/var/lib/odoo
       - ./config/odoo.conf:/etc/odoo/odoo.conf
       - ./extra-addons:/mnt/extra-addons
-      - ./enterprise:/mnt/enterprise
       - .:/mnt
     environment:
       - SHELL=/bin/zsh

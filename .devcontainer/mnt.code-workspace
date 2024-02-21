@@ -5,6 +5,9 @@
     },
     {
       "path": "/usr/lib/python3/dist-packages/odoo/addons"
+    },
+    {
+      "path": "/var/lib/odoo/addons/enterprise"
     }
   ],
   "settings": {}

@@ -39,3 +39,6 @@ docker_reload:
 
 docker_install:
 	docker exec odoo_web odoo --db_host=odoo_db --db_port=5432 --db_user=odoo --db_password=odoo -d odoo -i --stop-after-init
+
+docker_build:
+	DOCKER_BUILDKIT=1 docker build --secret id=ssh_key,src=$(HOME)/.ssh/id_rsa -f ./Dockerfile -t odoo17:latest .

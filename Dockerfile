@@ -6,6 +6,10 @@ RUN pip3 install debugpy
 
 RUN apt-get update && apt-get install -y zsh make vim git wget fontconfig
 
+RUN --mount=type=secret,id=ssh_key,dst=/root/.ssh/id_rsa \
+    ssh-keyscan github.com >> /root/.ssh/known_hosts && \
+    git clone git@github.com:odoo/enterprise.git --depth=1 --branch 17.0 --single-branch /var/lib/odoo/addons/enterprise
+
 RUN mkdir /odoo && chown odoo: /odoo
 RUN usermod -d /odoo odoo
 ENV HOME=/odoo
