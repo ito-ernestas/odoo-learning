@@ -1,16 +1,16 @@
 version: "3"
 services:
   web:
-    build: .
-    hostname: odoo_web
-    container_name: odoo_web
+    image: odoo17:latest
+    hostname: odoo17_web
+    container_name: odoo17_web
     depends_on:
       - db
     ports:
       - "8069:8069"
       - "5678:5678"
     volumes:
-      - odoo_web_data:/var/lib/odoo
+      - odoo17_web_data:/var/lib/odoo
       - ./config/odoo.conf:/etc/odoo/odoo.conf
       - ./extra-addons:/mnt/extra-addons
       - .:/mnt
@@ -21,22 +21,22 @@ services:
 
   db:
     image: postgres:13
-    hostname: odoo_db
-    container_name: odoo_db
+    hostname: odoo17_db
+    container_name: odoo17_db
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=odoo
       - POSTGRES_PASSWORD=odoo
     volumes:
-      - odoo_db_data:/var/lib/postgresql/data
+      - odoo17_db_data:/var/lib/postgresql/data
     ports:
       - "54320:5432"
     networks:
       - odoo_local
 
 volumes:
-  odoo_web_data:
-  odoo_db_data:
+  odoo17_web_data:
+  odoo17_db_data:
 
 networks:
   odoo_local:

@@ -6,14 +6,14 @@ RUN pip3 install debugpy
 
 RUN apt-get update && apt-get install -y zsh make vim git wget fontconfig
 
+RUN mkdir -p /opt/enterprise && chown -R odoo: /opt
+
 RUN --mount=type=secret,id=ssh_key,dst=/root/.ssh/id_rsa \
     ssh-keyscan github.com >> /root/.ssh/known_hosts && \
-    git clone git@github.com:odoo/enterprise.git --depth=1 --branch 17.0 --single-branch /var/lib/odoo/addons/enterprise
+    git clone git@github.com:odoo/enterprise.git --depth=1 --branch 17.0 --single-branch /opt/enterprise
 
-RUN mkdir /odoo && chown odoo: /odoo
 RUN usermod -d /odoo odoo
 ENV HOME=/odoo
-
 USER odoo
 WORKDIR $HOME
 
@@ -28,6 +28,5 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
     -p ssh-agent \
     -p https://github.com/zsh-users/zsh-autosuggestions \
     -p https://github.com/zsh-users/zsh-completions
-
 
 CMD ["python3", "-m", "debugpy", "--listen", "0.0.0.0:5678", "/usr/bin/odoo", "--db_host", "db", "--db_port", "5432", "--db_user", "odoo", "--db_password", "odoo"]
